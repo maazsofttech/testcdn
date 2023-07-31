@@ -1,1 +1,64 @@
-hello
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://crm.fyind.ae/im_livechat/external_lib.css" />
+  <script type="text/javascript" src="https://crm.fyind.ae/im_livechat/external_lib.js"></script>
+  <script type="text/javascript" src="https://crm.fyind.ae/im_livechat/loader/2"></script>
+
+  <title>Fyind Live Chat</title>
+
+  <style>
+   
+    .o_thread_window,
+    .o_in_home_menu {
+      width: 98%;
+    }
+  </style>
+</head>
+<body>
+   <script>
+  
+document.addEventListener('DOMContentLoaded', function() {
+
+  
+  function clickChatButton() {
+    let button = document.querySelector('.o_livechat_button');
+    if(button) {
+      button.click(); 
+    } else {
+      
+      setTimeout(clickChatButton, 100); 
+    }
+  }
+
+   
+  clickChatButton();
+
+   
+  let observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if(mutation.addedNodes) {
+        let threadWindow = document.querySelector('.o_thread_window.o_in_home_menu');
+        if(threadWindow) {
+         
+          threadWindow.style.width = '98%';
+		   threadWindow.style.height = '98%';
+
+
+         
+          observer.disconnect(); 
+        }
+      }
+    });    
+  });
+
+  
+  observer.observe(document.body, { 
+    childList: true,
+    subtree: true
+  });
+
+});
+</script>
+</body>
+</html>
