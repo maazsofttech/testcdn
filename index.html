@@ -8,18 +8,24 @@
   <title>Fyind Live Chat</title>
 
   <style>
- body { background :blue}
-    .o_thread_window,
-    .o_in_home_menu {
-      width: 98%;
-    }
+ body {background:yellow}
+  
+
+
+ 
   </style>
 </head>
 <body>
+
+ 
    <script>
+   
+    
+   
+    
   
 document.addEventListener('DOMContentLoaded', function() {
-
+//setTimeout(closeup,10000);
   
   function clickChatButton() {
     let button = document.querySelector('.o_livechat_button');
@@ -40,11 +46,12 @@ document.addEventListener('DOMContentLoaded', function() {
       if(mutation.addedNodes) {
         let threadWindow = document.querySelector('.o_thread_window.o_in_home_menu');
         if(threadWindow) {
-         
-        //  threadWindow.style.width = '20%';
-		   threadWindow.style.height = '98%';
-threadWindow.style.right ='';
-
+         threadWindow.style.zIndex = 99999999999;
+           threadWindow.style.width = '25%';
+		 // threadWindow.style.height = '98%';
+		 threadWindow.style.position ='fixed';
+ 
+//threadWindow.style.pointerEvents = 'auto';
          
           observer.disconnect(); 
         }
