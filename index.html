@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-   
+  <link rel="stylesheet" href="https://odoo.fyind.com/im_livechat/external_lib.css"/>
+
+            <script type="text/javascript" src="https://odoo.fyind.com/im_livechat/external_lib.js"></script>
+
+            <script type="text/javascript" src="https://odoo.fyind.com/im_livechat/loader/2"></script>
   <title>Fyind Live Chat</title>
 
    
 </head>
 <body> 
+
    <script> 
 document.addEventListener('DOMContentLoaded', function() {
 //setTimeout(closeup,10000);
@@ -26,21 +31,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
    
   let observer = new MutationObserver(function(mutations) {
+   try{
     mutations.forEach(function(mutation) {
       if(mutation.addedNodes) {
         let threadWindow = document.querySelector('.o_thread_window.o_in_home_menu');
         if(threadWindow) {
          threadWindow.style.zIndex = 99999999999;
            threadWindow.style.width = '25%';
-		 // threadWindow.style.height = '98%';
+		  
 		 threadWindow.style.position ='fixed';
- threadWindow.style.right ='';
-//threadWindow.style.pointerEvents = 'auto';
-         
+ threadWindow.style.right =''; 
           observer.disconnect(); 
         }
       }
-    });    
+    }); 
+   } 
+   catch(ex){
+    console.info("odoo error");
+   }  
   });
 
   
